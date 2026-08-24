@@ -195,7 +195,7 @@ func (r *Registry) heartBeat(ctx context.Context, leaseID clientv3.LeaseID, key 
 				go func() {
 					defer cancel()
 					id, registerErr := r.registerWithKV(cancelCtx, key, value)
-					if registerErr == nil {
+					if registerErr != nil {
 						errChan <- registerErr
 					} else {
 						idChan <- id
