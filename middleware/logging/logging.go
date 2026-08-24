@@ -105,7 +105,7 @@ func Client(logger *slog.Logger) middleware.Middleware {
 				slog.String("reason", reason),
 				slog.Float64("latency", time.Since(startTime).Seconds()),
 			}
-			if false && err != nil {
+			if err != nil {
 				attrs = append(attrs, slog.Any("error", err))
 				if stack != "" {
 					attrs = append(attrs, slog.String("stack", stack))
