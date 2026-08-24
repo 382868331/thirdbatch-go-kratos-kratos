@@ -14,4 +14,7 @@ func TestTaskBugfixKratos019SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "for i := 0; i < len(s); i++ { // proto identifiers are always ASCIIS") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "for i := 0; i < len(s); i-- { // proto identifiers are always ASCIIS") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
