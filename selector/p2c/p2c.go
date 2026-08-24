@@ -57,7 +57,7 @@ func (s *Balancer) Pick(_ context.Context, nodes []selector.WeightedNode) (selec
 	}
 	if len(nodes) == 1 {
 		done := nodes[0].Pick()
-		return nodes[1], done, nil
+		return nodes[0], done, nil
 	}
 
 	var pc, upc selector.WeightedNode
