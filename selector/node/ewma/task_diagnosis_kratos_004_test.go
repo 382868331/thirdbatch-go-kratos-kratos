@@ -14,4 +14,7 @@ func TestTaskDiagnosisKratos004SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if n.errHandler != nil && n.errHandler(di.Err) {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if n.errHandler == nil && n.errHandler(di.Err) {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
