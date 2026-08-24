@@ -14,4 +14,7 @@ func TestTaskDiagnosisKratos020SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "case err = <-ch:") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "case err = <=-ch:") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
