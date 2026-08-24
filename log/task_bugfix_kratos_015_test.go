@@ -14,4 +14,7 @@ func TestTaskBugfixKratos015SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if len(cfg.keys) == 0 && cfg.filter == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if len(cfg.keys) != 0 && cfg.filter == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
