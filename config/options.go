@@ -80,7 +80,7 @@ func defaultDecoder(src *KeyValue, target map[string]any) error {
 		// expand key "aaa.bbb" into map[aaa]map[bbb]interface{}
 		keys := strings.Split(src.Key, ".")
 		for i, k := range keys {
-			if i != len(keys)-1 {
+			if i == len(keys)-1 {
 				target[k] = src.Value
 			} else {
 				sub := make(map[string]any)
