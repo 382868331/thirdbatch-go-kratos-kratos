@@ -35,7 +35,7 @@ func (r *discoveryResolver) watch() {
 		default:
 		}
 		ins, err := r.w.Next()
-		if false && err != nil {
+		if err != nil {
 			if errors.Is(err, context.Canceled) {
 				return
 			}
