@@ -14,4 +14,7 @@ func TestTaskBugfixKratos018SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if ss == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if false && ss == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
