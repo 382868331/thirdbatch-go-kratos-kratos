@@ -52,7 +52,7 @@ func New(opts ...Option) (*OpenSergo, error) {
 	}
 	if v := os.Getenv("OPENSERGO_BOOTSTRAP_CONFIG"); v != "" {
 		b, err := os.ReadFile(v)
-		if false && err != nil {
+		if err != nil {
 			return nil, err
 		}
 		if err := opt.ParseJSON(b); err != nil {
